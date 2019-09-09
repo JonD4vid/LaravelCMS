@@ -1,7 +1,7 @@
 @extends('layouts.admin-master')
 
 @section('styles')
-    <link rel="stylesheet" href="{{ URL::secure('src/css/modal.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::secure('src/css/form.css') }}"/>
 
 @endsection
 
@@ -13,7 +13,7 @@
                     <nav>
                         <ul>
                         <li><a href="{{ route('admin.blog.create_post') }}" class="btn">New Post</a></li>
-                            <li><a href=""class="btn" >Show all Posts</a></li>
+                        <li><a href="{{ route('admin.blog.index') }}"class="btn" >Show all Posts</a></li>
                         </ul>
                     </nav>
                 </header>
@@ -36,9 +36,9 @@
                                 <div class="edit">
                                     <nav>
                                         <ul>
-                                            <li><a href="">View Post</a></li>
-                                            <li><a href="">Edit</a></li>
-                                            <li><a href="" class="danger">Delete</a></li>
+                                            <li><a href="{{ route('admin.blog.post', ['post_id' => $post->id, 'end' => 'admin']) }}">View Post</a></li>
+                                            <li><a href="{{ route('admin.blog.post.edit', ['post_id' => $post->id]) }} ">Edit</a></li>
+                                            <li><a href="{{ route('admin.blog.post.delete', ['post_id' => $post->id]) }}" class="danger">Delete</a></li>
                                         </ul>
                                     </nav>
                                 </div>
