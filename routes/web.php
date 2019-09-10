@@ -59,6 +59,11 @@ Route::group(['prefix' => 'admin'], function () {
         'as' => 'admin.blog.index'
     ]);
 
+    Route::get('/blog/categories', [
+        'uses' => 'CategoryController@getCategoryIndex',
+        'as' => 'admin.blog.categories'
+    ]);
+
     Route::get('/blog/post/{post_id}&{end}', [
         'uses'=> 'PostController@getSinglePost',
         'as' => 'admin.blog.post'
@@ -67,6 +72,11 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/blog/post/create', [
         'uses' => 'PostController@postCreatePost',
         'as' => 'admin.blog.post.create'
+    ]);
+
+    Route::post('/blog/category/create', [
+        'uses' => 'CategoryController@postCreateCategory',
+        'as' => 'admin.blog.category.create'
     ]);
 
     Route::get('/blog/post/{post_id}/edit', [
